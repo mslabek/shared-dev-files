@@ -1,0 +1,59 @@
+[
+    {
+        "content": "This is your first Nussknacer instance. You can play with it to see what you can do with Nu Cloud.\n\nClick the link to open Nussknacker Designer.",
+        "invalidProperty": "a[href$='acker.io']",
+        "nextOnClick": "a[href$='acker.io']",
+        "url": "https://manage.staging-cloud.nussknacker.io/tenants"
+    },
+    {
+        "content": "This is a list of your scenarios. We created an example scenario for you.\n\nOpen it to see what it does, how you can send some data to Nussknacker and how Nussknacker reacts.",
+        "selector": "a[href$='visualization/example-scenario'] < li",
+        "nextOnAppear": "[data-type='esp.Model'][model-id='user stream']",
+        "url": "https://%%tenant%%-nussknacker.staging-cloud.nussknacker.io"
+    },
+    {
+        "content": "The first node of every scenario defines the source of data the scenario is processing.\n\nDouble-click it to see what is the source of data in our example.",
+        "selector": "[data-type='esp.Model'][model-id='user stream']",
+        "nextOnAppear": "[data-testid='window']"
+    },
+    {
+        "content": "*http.example-input* is the input topic of this scenario. Communication with topics in Nu Cloud (sending and receiving events) is over HTTP. To send an input event, you can for example:\n\n- <details><summary>execute this curl command (click to expand) </summary><code>curl -H \"Content-Type: application/json\" -u publisher:%%password%% https://%%tenant%%-gateway.staging-cloud.nussknacker.io/topics/http.example-input -d '{ \"name\": \"Nutcracker\" }'</code></details>\n\n- use your browser to send an HTTP request by clicking <SendEvent url=\"https://%%tenant%%-gateway.staging-cloud.nussknacker.io/topics/http.example-input\" user=\"publisher\" password=\"%%password%%\" body='{{\"name\":\"Nutcracker\"}}'>here</SendEvent>\n\nAfter you have sent the event go to the <Next forwardClick=\"[data-testid='window'] footer button.window-close\">Next step</Next>",
+        "selector": ".node-label[title='Topic'] + .node-value > div"
+    },
+    {
+        "content": "If Nussknacker received your event, it has already been processed by now. To see what happened, head over to the Topics list.",
+        "selector": ":not([hidden]) > a[href$='/topics'], ul.react-truncate-list > li:not([hidden]) > button",
+        "nextOnClick": "a[href$='/topics']",
+        "nextOnAppear": "ul > :contains(\"example-input\")"
+    },
+    {
+        "content": "Open the input topic first, the one you have just sent an event to.",
+        "selector": "ul > :contains(\"example-input\")",
+        "nextOnAppear": ":header:contains(\"messages preview\")"
+    },
+    {
+        "content": "Here you can find the last events in the topic. Since this topic is used as an input for the example scenario, all the events you see here are processed by this scenario.\n\n<details>\n<summary>If you don’t see any events, click here to see how to resend them</summary>\n\n- execute this curl command: <code>curl -H \"Content-Type: application/json\" -u publisher:%%password%% https://%%tenant%%-gateway.staging-cloud.nussknacker.io/topics/http.example-input -d '{ \"name\": \"Nutcracker\" }'</code>\n\n- use your browser to send an HTTP request by clicking <SendEvent url=\"https://%%tenant%%-gateway.staging-cloud.nussknacker.io/topics/http.example-input\" user=\"publisher\" password=\"%%password%%\" body='{{\"name\":\"Nutcracker\"}}'>here</SendEvent>\n\n</details>\n\n<br/>\n\nNow let’s see the result Nussknacker produced. <ForwardClick to=\"a[href='/topics']\">Back to topics list</ForwardClick>",
+        "selector": ":contains(\"example-input\") :header:contains(\"messages preview\") < div < div > *",
+        "nextOnAppear": "ul > :contains(\"example-output\")"
+    },
+    {
+        "content": "*example-output* topic is set to be the output of the example scenario in the last node of the scenario, which is called a sink.\n\nOpen the output topic, to see the result of processing of the event you’ve sent.",
+        "selector": "ul > :contains(\"example-output\")",
+        "nextOnAppear": ":header:contains(\"Subscriptions\")"
+    },
+    {
+        "content": "To receive results (output events) Nussknacker produces, you use Nu Cloud topic subscriptions. Nussknacker will send all the events in a chosen topic to an HTTP endpoint you provide.\n\nIf you have an endpoint Nussknacker can send HTTP POST requests to, click *Add subscription* to try it out.\n\nIf you don’t want to add a subscription now <Goto step=\"+2\">Skip this step</Goto>",
+        "selector": ":header:contains(\"Subscriptions\") < div < div > *",
+        "nextOnClick": "button:contains(\"Add subscription\")",
+        "nextOnAppear": ".MuiDialog-container:contains(\"example-output\")"
+    },
+    {
+        "content": "Subscription name and description can be anything you want. Endpoint is the URL of the endpoint you want to receive the events from the topic.\n\n<details><summary>After you add the subscription, try sending some more events to the example scenario, to get the output events on your endpoint (click to see how).</summary>\n\n- execute this curl command: <code>curl -H \"Content-Type: application/json\" -u publisher:%%password%% https://%%tenant%%-gateway.staging-cloud.nussknacker.io/topics/http.example-input -d '{ \"name\": \"Nutcracker\" }'</code>\n\n- use your browser to send an HTTP request by clicking <SendEvent url=\"https://%%tenant%%-gateway.staging-cloud.nussknacker.io/topics/http.example-input\" user=\"publisher\" password=\"%%password%%\" body='{{\"name\":\"Nutcracker\"}}'>here</SendEvent></details>",
+        "selector": ".MuiDialog-container:contains(\"example-output\") .MuiPaper-root",
+        "nextOnClick": ".MuiDialog-container:contains(\"example-output\") button"
+    },
+    {
+        "content": "If you want to know more about Nussknacker, you can start with the [Overview](https://nussknacker.io/documentation/about/Overview/).\n\nTo learn more about creating your own scenarios, see [Scenarios authoring](https://nussknacker.io/documentation/docs/scenarios_authoring/).\n\nIf you have your own Kafka cluster, check out Connecting to [Confluent Cloud](https://nussknacker.io/documentation/cloud/confluent/), [Aiven](https://nussknacker.io/documentation/cloud/aiven/), [Azure Event Hubs](https://nussknacker.io/documentation/cloud/azure/), [Redpanda](https://nussknacker.io/documentation/cloud/redpanda/) or [a generic Kafka cluster](https://nussknacker.io/documentation/cloud/configuration/#configuring-access-to-existing-kafka-cluster).\n\n<Next>Close</Next>",
+        "selector": "#app-container > header"
+    }
+]
