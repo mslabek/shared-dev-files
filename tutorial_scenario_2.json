@@ -1,7 +1,7 @@
 [
     {
         "content": "Lorem ipsum dolor sit amet. Id voluptates dolores et amet voluptatem ut sunt blanditiis 33 laudantium quia rem eius enim. Ex ipsam harum rem dolor porro sed architecto nesciunt id quae voluptatem:\n\n- executing this curl command: <code>tutaj odpowiednie polecenie: %%tenant%% %%password%%</code>\n\nor\n\n- using your browser to send an HTTP request by clicking <SendEvent url=\"%%tenant%%\" password=\"%%password%%\">here</SendEvent>\n\nAfter you have sent the event go to the <Next />\n",
-        "selector": "a[href$='acker.io']",
+        "selector": "a[href$='/cloud/']",
         "nextOnClick": "a[href$='acker.io']"
     },
     {
