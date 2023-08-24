@@ -1,0 +1,12 @@
+[
+    {
+        "content": "Lorem ipsum dolor sit amet. Id voluptates dolores et amet voluptatem ut sunt blanditiis 33 laudantium quia rem eius enim. Ex ipsam harum rem dolor porro sed architecto nesciunt id quae voluptatem:\n\n- executing this curl command: <code>tutaj odpowiednie polecenie: %%tenant%% %%password%%</code>\n\nor\n\n- using your browser to send an HTTP request by clicking <SendEvent url=\"%%tenant%%\" password=\"%%password%%\">here</SendEvent>\n\nAfter you have sent the event go to the <Next />\n",
+        "selector": "a[href$='acker.io']",
+        "nextOnClick": "a[href$='acker.io']"
+    },
+    {
+        "content": "Lorem ipsum dolor sit amet. Vel veritatis accusantium eum illo voluptatibus At similique consequatur aut ipsum omnis et modi quam qui sunt tempora. Et excepturi sapiente in quia tempora ea veniam ducimus.",
+        "selector": "a[href$='visualization/example-scenario'] div",
+        "nextOnAppear": "[data-type='esp.Model'][model-id='user stream']"
+    }
+]
